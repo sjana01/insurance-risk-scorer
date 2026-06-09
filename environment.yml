@@ -1,0 +1,23 @@
+name: insurance-risk
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - xgboost=1.7
+  - scikit-learn>=1.2
+  - pandas>=1.5
+  - numpy>=1.23
+  - matplotlib>=3.6
+  - seaborn>=0.12
+  - shap>=0.41
+  - jupyterlab>=3.6
+  - ipykernel
+  - pip:
+      - kaggle
+      - boto3>=1.26
+      - sagemaker>=2.140
+      - category_encoders>=2.6
+      - joblib>=1.2
+      - pytest>=7.2
+      - pytest-cov
