@@ -277,17 +277,3 @@ insurance-risk-scorer/
 ├── environment.yml
 └── requirements.txt
 ```
-
----
-
-## Cost Estimate
-
-| Resource | Rate | Notes |
-|---|---|---|
-| SageMaker training (ml.m5.xlarge) | ~$0.23/hr | One-time ~25 min run → ~$0.10 |
-| SageMaker endpoint (ml.m5.large) | ~$0.115/hr | **Delete when not demoing** |
-| Lambda | ~$0/req | Free tier covers millions of requests |
-| API Gateway | ~$3.50/M req | Effectively free at demo scale |
-| S3 | ~$0.023/GB/mo | ~$0.01/mo for this dataset |
-
-Set a billing alert: AWS Console → Billing → Budgets → $10/month.
