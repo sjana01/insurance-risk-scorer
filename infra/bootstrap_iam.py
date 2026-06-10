@@ -61,7 +61,7 @@ def create_role(iam, role_name: str, trust_service: str, description: str, dry_r
 
     if role_exists(iam, role_name):
         arn = iam.get_role(RoleName=role_name)["Role"]["Arn"]
-        print(f"  [exists]  {role_name} → {arn}")
+        print(f"  [exists]  {role_name} -> {arn}")
         return arn
 
     if dry_run:
@@ -75,7 +75,7 @@ def create_role(iam, role_name: str, trust_service: str, description: str, dry_r
         Tags=PROJECT_TAG,
     )
     arn = response["Role"]["Arn"]
-    print(f"  [created] {role_name} → {arn}")
+    print(f"  [created] {role_name} -> {arn}")
     return arn
 
 

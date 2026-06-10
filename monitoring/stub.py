@@ -66,7 +66,6 @@ def create_latency_alarm(threshold_ms: float = 2000.0) -> None:
         Period=60,
         EvaluationPeriods=3,
         Threshold=threshold_ms * 1_000,  # SageMaker reports in microseconds
-        Statistic="p99",
         ExtendedStatistic="p99",
         ComparisonOperator="GreaterThanThreshold",
         TreatMissingData="notBreaching",

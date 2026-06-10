@@ -52,13 +52,19 @@ def parse_args():
 
 
 def load_data(channel_dir: str) -> pd.DataFrame:
-    """Load the first CSV found in the channel directory."""
-    for fname in os.listdir(channel_dir):
-        if fname.endswith(".csv"):
-            path = os.path.join(channel_dir, fname)
-            print(f"Loading: {path}")
-            return load_and_clean(path)
-    raise FileNotFoundError(f"No CSV found in {channel_dir}")
+    """Load CSV from a file path or directory. Prefers train.csv when given a directory."""
+    if os.path.isfile(channel_dir):
+        print(f"Loading: {channel_dir}")
+        return load_and_clean(channel_dir)
+    # Directory: prefer train.csv, then any CSV that isn't test.csv
+    candidates = sorted(f for f in os.listdir(channel_dir) if f.endswith(".csv"))
+    preferred = next((f for f in candidates if "train" in f), None)
+    fname = preferred or next((f for f in candidates if "test" not in f), candidates[0] if candidates else None)
+    if fname is None:
+        raise FileNotFoundError(f"No CSV found in {channel_dir}")
+    path = os.path.join(channel_dir, fname)
+    print(f"Loading: {path}")
+    return load_and_clean(path)
 
 
 def train(args):

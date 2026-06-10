@@ -1,0 +1,5 @@
+{
+  "api_id": "a4mr2wmqr3",
+  "function_name": "insurance-risk-scorer-api",
+  "invoke_url": "https://a4mr2wmqr3.execute-api.us-east-1.amazonaws.com/prod/predict"
+}

@@ -27,7 +27,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 ENDPOINT_NAME = os.environ["ENDPOINT_NAME"]
-REGION = os.environ.get("AWS_REGION", "us-east-1")
+REGION = os.environ.get("SM_REGION", "us-east-1")
 
 _runtime = None  # lazy-init so cold starts don't fail on missing creds during tests
 

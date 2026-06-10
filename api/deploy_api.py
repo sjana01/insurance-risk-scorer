@@ -55,7 +55,7 @@ def upsert_lambda(zip_bytes: bytes) -> str:
     """Create or update the Lambda function. Returns function ARN."""
     env_vars = {
         "ENDPOINT_NAME": ENDPOINT_NAME,
-        "AWS_REGION": REGION,  # redundant but explicit
+        "SM_REGION": REGION,
     }
 
     try:
